@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Recipe Catalogue</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <img src="assets/Nav.jpg" alt="nav" />
+        </div>
+        <div class="banner">
+            <img src="assets/Banner.png" alt="banner" />
+        </div>
+        <h1>Recipe Catalogue</h1>
+        <input type="text" id="search" placeholder="Search for recipes">
+    </header>
+    
+    <button class="toggle-btn" data-type="all"><img src="assets/all.png" alt="all"/></button>
+    <button class="toggle-btn" data-type="veg"><img src="assets/veg.png" alt="veg"/></button>
+    <button class="toggle-btn" data-type="non-veg"><img src="assets/NonVegReciepe.png" alt="nonVeg"/></button>
+
+    <div class="filterCardContainer">
+
+        <div class="filters">
+            <div class="rating-filter">
+                <b>
+                    Rating 
+                </b>
+                <br>
+                <label>
+                    <input type="checkbox" name="rating" value="above4.5">
+                     4 and Above <br>
+                </label>
+                <label>
+                    <input type="checkbox" name="rating" value="below4.0">
+                     Below 4
+                </label>
+            </div>
+        </div>
+    
+        <div class="recipe-cards" id="recipeCards"></div>
+    </div>
+    <div class="footer">
+        <img src="assets/02.jpg" alt="footer" />
+    </div>
+
+   
+
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-content">
+           
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
