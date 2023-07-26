@@ -151,10 +151,12 @@ function createRecipeCard(recipe) {
     likeButton.innerHTML = recipe.isLiked ? "&#x2764;" : "&#x2661;";
     likeButton.classList.add("like-btn");
     card.appendChild(likeButton);
-    likeButton.onclick=function(){
-         recipe.isLiked = !isLiked;
+    
+    likeButton.onclick = function () {
+        recipe.isLiked = !recipe.isLiked;
+
         likeButton.innerHTML = recipe.isLiked ? "&#x2764;" : "&#x2661;";
-    }
+      };
 
     return card;
 }
