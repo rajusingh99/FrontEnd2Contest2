@@ -8,57 +8,95 @@
     <title>Recipe Catalogue</title>
 </head>
 
-<body>
-    <header>
-        <div class="navbar">
-            <img src="assets/Nav.jpg" alt="nav" />
-        </div>
-        <div class="banner">
-            <img src="assets/Banner.png" alt="banner" />
-        </div>
-        <h1>Recipe Catalogue</h1>
-        <input type="text" id="search" placeholder="Search for recipes">
-    </header>
-    
-    <button class="toggle-btn" data-type="all"><img src="assets/all.png" alt="all"/></button>
-    <button class="toggle-btn" data-type="veg"><img src="assets/veg.png" alt="veg"/></button>
-    <button class="toggle-btn" data-type="non-veg"><img src="assets/NonVegReciepe.png" alt="nonVeg"/></button>
-
-    <div class="filterCardContainer">
-
-        <div class="filters">
-            <div class="rating-filter">
-                <b>
-                    Rating 
-                </b>
-                <br>
-                <label>
-                    <input type="checkbox" name="rating" value="above4.5">
-                     4 and Above <br>
-                </label>
-                <label>
-                    <input type="checkbox" name="rating" value="below4.0">
-                     Below 4
-                </label>
+<body> 
+     <div class="container">
+         <header>
+             <div class="header-container">
+                 <div>
+                    <img src="./assets/Cookpal.jpg" alt="CookPal" class="header-text">
+                 </div>
+                 <div style="display: flex;justify-content: space-between; gap: 20px;">
+                    <p style="color: #509E2F;" class="header-text">Home</p>
+                    <p class="header-text">Explore</p>
+                    <p class="header-text">Help</p>
+                    <img class="header-text" src="assets/Profile.png" alt="profile" width="42px" height="42px" />
+                 </div>
+             </div>
+            </header>
+            <div class="banner">
+                <img src="assets/Banner.png" alt="banner" />
+                <h1>Recipe Catalogue</h1>
+                <input type="text" id="search" placeholder="Search for recipes">
             </div>
-        </div>
-    
-        <div class="recipe-cards" id="recipeCards"></div>
-    </div>
-    <div class="footer">
-        <img src="assets/02.jpg" alt="footer" />
-    </div>
-
-   
-
-
-    <div class="mobile-drawer" id="mobileDrawer">
-        <div class="drawer-content">
-           
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+            <button class="toggle-btn" data-type="all"><img src="assets/all.png" alt="all"/></button>
+            <button class="toggle-btn" data-type="veg"><img src="assets/veg.png" alt="veg"/></button>
+            <button class="toggle-btn" data-type="non-veg"><img src="assets/NonVegReciepe.png" alt="nonVeg"/></button>
+     
+         <div class="filterCardContainer">
+             <div class="filters"> 
+                 <h3>Filters</h3>
+                 <div class="rating-filter">
+                     <b>Rating </b>  <br>
+                     <label>
+                         <input type="checkbox" name="rating" value="above4.5" style="color: #509E2F;">
+                          4 and Above <br>
+                     </label>
+                     <label>
+                         <input type="checkbox" name="rating" value="below4.0">
+                          Below 4
+                     </label>
+                 </div>
+             </div>
+         
+             <div class="recipe-cards" id="recipeCards"></div>
+         </div>
+     
+         <footer class="footer">
+            <div class="footer-container">
+               <div class="div-footer">
+                    <img src="./assets/Cookpal.jpg" alt="CookPal">
+                    <p style="width: 80%; color: #253D4E; font-size: 16px; line-height: 24px; text-align: justify;">Cookpal is a recipe website with a wide variety of delicious recipes, easy-to-use search function. Join our community and let's cook together!</p>
+               </div>
+               <div class="div-footer"> 
+                    <h3>Company</h3>
+                    <p>Home</p>
+                    <p>Explore</p>
+                    <p>Team</p>
+                    <p>About us</p>
+                    <p>Activity</p>
+               </div>
+               <div  class="div-footer">
+                    <h3>Resources</h3>
+                    <p>Blogs</p>
+                    <p>Use Cases</p>
+                    <p>Testimonials</p>
+                    <p>Insights</p>
+               </div>
+               <div class="div-footer">
+                    <img src="./assets/Cookpal.jpg" alt="CookPal">
+                    <p style="color: #253D4E; font-size: 16px; line-height: 24px; text-align: justify;">Ut risus mattis interdum faucibus facilisi. Facilisi purus accumsan aliquam.</p>
+                    <div style="display: flex;">
+                        <input type="email" placeholder="Your Email" style="height: 40px;" width="60%"/>
+                        <button style=" width: 40%;background-color: #509E2F; color: #FFFFFF; cursor: pointer;"height="40px";>Subscribe</button>
+                    </div>
+               </div>
+            </div>
+            <div style="display: flex; justify-content: center; padding-bottom: 30px;">
+                <img src="./assets/insta.png" alt="instagram">
+                <img src="./assets//twitter.png" alt="twitter">
+                <img src=".//assets/linkedin.png" alt="linkedin">
+                <img src="./assets/facebook.png" alt="facebook">
+            </div>
+          </footer>
+        
+         <div class="mobile-drawer" id="mobileDrawer">
+             <div class="drawer-content">
+                
+             </div>
+         </div>
+     
+         <script src="script.js"></script>
+     </div>
 </body>
 
 </html>

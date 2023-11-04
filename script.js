@@ -1,10 +1,11 @@
-const recipes = [
+
+const recipes= [
     {
         "name": "Veggie Delight",
         "imageSrc": "https://source.unsplash.com/random?veggies",
         "time": "30 min",
         "type": "veg",
-        "isLiked": true,
+        "isLiked": false,
         "rating": 4.2
     },
     {
@@ -119,9 +120,7 @@ const recipes = [
         "isLiked": false,
         "rating": 4.9
     }
-
-];
-
+]
 
 function createRecipeCard(recipe) {
     const card = document.createElement("div");
@@ -130,44 +129,54 @@ function createRecipeCard(recipe) {
     const image = document.createElement("img");
     image.src = recipe.imageSrc;
     card.appendChild(image);
+    
+    
+    const type = document.createElement("p");
+    type.textContent = recipe.type === "veg" ? "Veg" : "Non Veg";
+    card.appendChild(type);
+    
+    const contentBox = document.createElement('div'); 
+    contentBox.classList.add('content-box');
 
     const title = document.createElement("h3");
     title.textContent = recipe.name;
-    card.appendChild(title);
-
-    const type = document.createElement("p");
-    type.textContent = recipe.type === "veg" ? "Vegetarian" : "Non-Vegetarian";
-    card.appendChild(type);
-
-    const time = document.createElement("p");
-    time.textContent = `Time: ${recipe.time}`;
-    card.appendChild(time);
+    contentBox.appendChild(title);
 
     const rating = document.createElement("p");
-    rating.textContent = `Rating: ${recipe.rating}`;
-    card.appendChild(rating);
+    const starIcon = document.createElement("span");
+    starIcon.innerHTML = "&#9733;"; 
+    starIcon.classList.add("star-icon");
+    rating.appendChild(starIcon); 
+    rating.innerHTML += ` ${recipe.rating}`; 
+    contentBox.appendChild(rating);
+    card.appendChild(contentBox);
+
+    const timeLikeContainer = document.createElement("div");
+    timeLikeContainer.classList.add("time-like-container");
+
+    const time = document.createElement("h3");
+    time.classList.add('time');
+    time.textContent = `${recipe.time}`;
+    timeLikeContainer.appendChild(time);
 
     const likeButton = document.createElement("button");
+    likeButton.classList.add("like-btn", "like")
     likeButton.innerHTML = recipe.isLiked ? "&#x2764;" : "&#x2661;";
-    likeButton.classList.add("like-btn");
-    card.appendChild(likeButton);
-    
+    timeLikeContainer.appendChild(likeButton);
+
+    card.appendChild(timeLikeContainer);
+
     likeButton.onclick = function () {
         recipe.isLiked = !recipe.isLiked;
-
         likeButton.innerHTML = recipe.isLiked ? "&#x2764;" : "&#x2661;";
-      };
-
+    };
     return card;
 }
-
 
 function renderRecipeCards(recipeArray) {
     const recipeCardsContainer = document.getElementById("recipeCards");
     recipeCardsContainer.innerHTML = "";
-
     recipeArray.forEach((recipe) => {
-        console.log("recipe",recipe)
         const card = createRecipeCard(recipe);
         recipeCardsContainer.appendChild(card);
     });
@@ -182,11 +191,10 @@ document.getElementById("search").addEventListener("input", function () {
     renderRecipeCards(filteredRecipes);
 });
 
-
 document.querySelectorAll(".toggle-btn").forEach((button) => {
     button.addEventListener("click", function () {
         const type = this.dataset.type;
-       
+        console.log("ratingFilter",type)
         if (type === "all") {
             renderRecipeCards(recipes);
         } else {
@@ -195,7 +203,6 @@ document.querySelectorAll(".toggle-btn").forEach((button) => {
         }
     });
 });
-
 
 document.querySelectorAll('input[name="rating"]').forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
@@ -209,7 +216,6 @@ document.querySelectorAll('input[name="rating"]').forEach((checkbox) => {
         } else {
             filteredRecipes = recipes;
         }
-
         renderRecipeCards(filteredRecipes);
     });
 });
